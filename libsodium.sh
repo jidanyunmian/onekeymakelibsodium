@@ -36,7 +36,7 @@ check_sys(){
 }
 Check_Libsodium_ver(){
 	echo -e "${Info} 开始获取 libsodium 最新版本..."
-	Libsodiumr_ver=$(wget -qO- "https://github.com/jedisct1/libsodium/tags"|grep "/jedisct1/libsodium/releases/tag/"|head -1|sed -r 's/.*tag\/(.+)\">.*/\1/')
+	Libsodiumr_ver=$(wget -qO- "https://hub.fastgit.org/jedisct1/libsodium/tags"|grep "/jedisct1/libsodium/releases/tag/"|head -1|sed -r 's/.*tag\/(.+)\">.*/\1/')
 	[[ -z ${Libsodiumr_ver} ]] && Libsodiumr_ver=${Libsodiumr_ver_backup}
 	echo -e "${Info} libsodium 最新版本为 ${Green_font_prefix}[${Libsodiumr_ver}]${Font_color_suffix} !"
 }
@@ -59,7 +59,7 @@ Install_Libsodium(){
 		yum -y groupinstall "Development Tools"
 		yum install -y gcc
 		echo -e "${Info} 下载..."
-		wget  --no-check-certificate -N "https://github.com/jedisct1/libsodium/releases/download/${Libsodiumr_ver}/libsodium-${Libsodiumr_ver}.tar.gz"
+		wget  --no-check-certificate -N "https://hub.fastgit.org/jedisct1/libsodium/releases/download/${Libsodiumr_ver}/libsodium-${Libsodiumr_ver}.tar.gz"
 		if [[ -e libsodium-${Libsodiumr_ver}.tar.gz ]]; then
 			echo  -e "${Info} 下载成功..."
 		else
@@ -70,7 +70,7 @@ Install_Libsodium(){
 			else
 				echo  -e "${Error} 下载失败，尝试下载历史版本..."
 				Libsodiumr_ver=${Libsodiumr_ver_backup}
-				wget  --no-check-certificate -N "https://github.com/jedisct1/libsodium/releases/download/${Libsodiumr_ver}/libsodium-${Libsodiumr_ver}.tar.gz"
+				wget  --no-check-certificate -N "https://hub.fastgit.org/jedisct1/libsodium/releases/download/${Libsodiumr_ver}/libsodium-${Libsodiumr_ver}.tar.gz"
 				[[ ! -e libsodium-${Libsodiumr_ver}.tar.gz ]] && echo -e "${Error} libsodium 下载失败 !" && exit 1
 			fi
 		fi
@@ -88,7 +88,7 @@ Install_Libsodium(){
 		apt-get install -y build-essential
 		apt-get install -y gcc
 		echo -e "${Info} 下载..."
-		wget  --no-check-certificate -N "https://github.com/jedisct1/libsodium/releases/download/${Libsodiumr_ver}/libsodium-${Libsodiumr_ver}.tar.gz"
+		wget  --no-check-certificate -N "https://hub.fastgit.org/jedisct1/libsodium/releases/download/${Libsodiumr_ver}/libsodium-${Libsodiumr_ver}.tar.gz"
 		if [[ -e libsodium-${Libsodiumr_ver}.tar.gz ]]; then
 			echo  -e "${Info} 下载成功..."
 		else
@@ -99,7 +99,7 @@ Install_Libsodium(){
 			else
 				echo  -e "${Error} 下载失败，尝试下载历史版本..."
 				Libsodiumr_ver=${Libsodiumr_ver_backup}
-				wget  --no-check-certificate -N "https://github.com/jedisct1/libsodium/releases/download/${Libsodiumr_ver}/libsodium-${Libsodiumr_ver}.tar.gz"
+				wget  --no-check-certificate -N "https://hub.fastgit.org/jedisct1/libsodium/releases/download/${Libsodiumr_ver}/libsodium-${Libsodiumr_ver}.tar.gz"
 				[[ ! -e libsodium-${Libsodiumr_ver}.tar.gz ]] && echo -e "${Error} libsodium 下载失败 !" && exit 1
 			fi
 		fi
